@@ -1,9 +1,9 @@
 # = Class dashing::config
 class dashing::config (
-  $daemon_dir,
-  $dashing_dir,
-  $dashing_port,
-  $gem_home,
+  $daemon_dir   = undef,
+  $dashing_dir  = undef,
+  $dashing_port = undef,
+  $gem_home     = undef
 ) {
 
   file {'/etc/init.d/dashing':
@@ -11,7 +11,7 @@ class dashing::config (
     content => template('dashing/dashboard.erb'),
     owner   => 'root',
     group   => 'root',
-    mode    => 0755
+    mode    => '0755'
   }
 
 }

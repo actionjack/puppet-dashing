@@ -38,10 +38,10 @@
 # Copyright 2014 Your name here, unless otherwise noted.
 #
 class dashing (
-  $daemon_dir,
-  $dashing_dir,
-  $dashing_port = 3030,
-  $gem_home,
+  $daemon_dir     = '/usr/local/bin',
+  $dashing_dir    = undef,
+  $dashing_port   = 3030,
+  $gem_home       = undef,
   $manage_service = true
 ) {
 
@@ -57,9 +57,11 @@ class dashing (
     dashing_dir  => $dashing::dashing_dir,
     dashing_port => $dashing::dashing_port,
     gem_home     => $dashing::gem_home,
-  }  ->
-  if $manage_service {
-    class { 'dashing::service': }
+  }
+  if $manage_service == true {
+    class { 'dashing::service':
+      require    => Class['dashing::config']
+    }
   }
 
 }
