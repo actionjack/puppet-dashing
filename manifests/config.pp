@@ -8,7 +8,7 @@ class dashing::config (
 
   file {'/etc/init.d/dashing':
     ensure  => 'present',
-    content => template('dashing/dashboard.erb'),
+    content => template('dashing/dashing.erb'),
     owner   => 'root',
     group   => 'root',
     mode    => '0755'

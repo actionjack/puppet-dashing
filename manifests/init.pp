@@ -47,7 +47,6 @@ class dashing (
 
   validate_absolute_path($daemon_dir)
   validate_absolute_path($dashing_dir)
-  validate_re('^\d{4,5}$')
   validate_absolute_path($gem_home)
   validate_bool($manage_service)
 
